@@ -11,7 +11,7 @@
 
 
 # pre-reqs
-sudo  apt-get install apache2 libapache2-mod-php php-xml
+sudo apt install -y install apache2 libapache2-mod-php php-xml
 
 # enable Apache Rewrite module.
 sudo a2enmod rewrite
@@ -62,18 +62,17 @@ read -p "Press enter to edit file"
 sudo nano /etc/apache2/apache2.conf
 
 # lock it down for localhost traffic
-sudo nano  /etc/apache2/ports.conf
-
-
-# Restart Apache2 service.
 echo "comment out ..."
 echo "Listen 80"
 echo "... with ..."
 echo "Listen 127.0.0.1:80"
 read -p "Press enter to edit file"
+sudo nano  /etc/apache2/ports.conf
+
+
+# Restart Apache2 service.
 sudo service apache2 restart
 
 echo "go to 127.0.0.1/install.php to get started"
 echo "Delete the install.php file after finished installing"
 echo "sudo rm /var/www/dokuwiki/install.php"
-
